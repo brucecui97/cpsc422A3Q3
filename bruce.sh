@@ -14,7 +14,8 @@ do
     
     output=$(./makewff -cnf $CLAUSE_LENGTH $NUM_VARIABLES $num_clauses|./walksat)
 
-    echo $output
-    
+    #echo $output
+    found_string=$(echo "$output" | tail -n1)
+    echo $found_string
 done
 
