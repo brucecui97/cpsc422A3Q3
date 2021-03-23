@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#comment
-
 echo "Hello World"
 
 declare -r CLAUSE_LENGTH=3
@@ -16,6 +14,10 @@ do
 
     #echo $output
     found_string=$(echo "$output" | tail -n1)
+    #echo $found_string
+
+    if [[ $found_string == "ASSIGNMENT FOUND" ]]; then
     echo $found_string
+    fi
 done
 
