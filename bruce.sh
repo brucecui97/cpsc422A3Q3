@@ -19,13 +19,14 @@ for num_clauses in 20 40 60 80 100 120 140 160 180 200
             
             output=$(./makewff -cnf $CLAUSE_LENGTH $NUM_VARIABLES $num_clauses|timeout 10s ./walksat)
 
-            echo $(echo "$output" | grep "mean flips until assign =")
+            
 
             found_string=$(echo "$output" | tail -n1)
 
             if [[ $found_string == "ASSIGNMENT FOUND" ]]; then
                 #echo $found_string
                 num_success=$((num_success+1))
+                echo $(echo "$output" | grep "mean flips until assign =") >> "res.txt"
             fi
             done
 
